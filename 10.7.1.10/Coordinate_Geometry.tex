@@ -1,0 +1,136 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx}
+%\documentclass[journal,12pt,twocolumn]{IEEEtran}
+\usepackage[none]{hyphenat}
+\usepackage{graphicx}
+\usepackage{listings}
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{caption} 
+\usepackage{hyperref}
+\usepackage{booktabs}
+\def\inputGnumericTable{}
+\usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}
+\usepackage{array}
+\usepackage{amsmath}   % for having text in math mode
+\usepackage{listings}
+\lstset{
+language=tex,
+frame=single, 
+breaklines=true
+}
+  
+%Following 2 lines were added to remove the blank page at the beginning
+\usepackage{atbegshi}% http://ctan.org/pkg/atbegshi
+\AtBeginDocument{\AtBeginShipoutNext{\AtBeginShipoutDiscard}}
+%
+
+
+%New macro definitions
+\newcommand{\mydet}[1]{\ensuremath{\begin{vmatrix}#1\end{vmatrix}}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\newcommand{\myvec}[1]{\ensuremath{\begin{pmatrix}#1\end{pmatrix}}}
+\let\vec\mathbf
+
+\begin{document}
+
+\begin{center}
+\title{\textbf{Coordinate Geometry}}
+\date{\vspace{-5ex}} %Not to print date automatically
+\maketitle
+\end{center}
+
+\setcounter{page}{1}
+
+
+
+\begin{enumerate}
+
+\item\textbf{Problem statement :} Find a relation between x and y such that the point $\myvec{x ,y}$ is equidistant from the point $\myvec{3 ,6}$ and $\myvec{-3 ,4}$
+
+\solution \\
+\textbf{\centering{Method I}}
+\\The input parameters for this problem are given as
+	\begin{align}
+	\vec{P} = \myvec{
+		x\\
+		y\\
+		},
+	\vec{A} = \myvec{
+		3\\
+		6\\
+		},
+        \vec{B} = \myvec{
+		3\\
+		-4\\
+		}
+	\end{align}
+
+
+  If $\vec{P} (x,y)$ equidistant from the points $\vec{A}$ and $\vec{B}$, 
+\begin{align}
+ \norm{\vec{P}-\vec{A}} &=
+\norm{\vec{P}-\vec{B}} 
+\\
+ \implies \norm{\vec{P}-\vec{A}}^2 &=
+\norm{\vec{P}-\vec{B}}^2 
+\end{align}
+which can be expressed as 
+\begin{multline}
+%  \label{eq:norm2d_dist}
+ \brak{\vec{P}-\vec{A}}^{\top} \brak{\vec{P}-\vec{A}}=
+ \brak{\vec{P}-\vec{B}}^{\top} 
+\brak{\vec{P}-\vec{B}}
+\\
+ \implies \norm{\vec{P}}^2-2{\vec{P}}^{\top}\vec{A} + \norm{\vec{A}}^2
+ \\= \norm{\vec{P}}^2-2{\vec{P}}^{\top}\vec{B} + \norm{\vec{B}}^2
+\end{multline}
+which can be simplified to obtain
+%  \eqref{eq:norm2d_equidist}.
+  \begin{align}
+   \vec{P} &=
+    y\vec{e}_1
+  \end{align}
+  where 
+  \begin{align}
+   y &=\frac{\norm{\vec{A}}^2 -\norm{\vec{B}}^2 }{2\brak{\vec{A}-\vec{B}}^{\top }\vec{e}_1
+}\label{eq:5}  
+  \end{align}
+  now substituting the A and B values in \eqref{eq:5}
+\begin{align}
+ \brak{\vec{A}-\vec{B}}^{\top}=
+ \brak{\myvec{3 \\ 6}-\myvec{-3\\4}}^{\top}
+ =\myvec{6 & 2}
+\end{align}
+  \begin{align}
+   \norm{\vec{A}}^2 = 45
+    \end{align}
+ \begin{align}
+   \norm{\vec{B}}^2 = 25
+    \end{align}
+upon   substituting the values in \eqref{eq:5} the value of $y$ = $ 5$
+\\Hence, the desired point is $\vec{P}$ is$\myvec{ 0 \\ 5}$.\\
+\textbf{Method II :}\\
+If P(x,y) is the equidistant from A and B, then the 
+\begin{align}
+    \vec{P(x,y)}=(\frac{\vec{x1}+\vec{x2}}{2},\frac{\vec{y1}+\vec{y2}}{2})\\
+    \vec{P(x,y)}= ({\frac{3-3}{2}} , {\frac{6+4}{2}})= \vec(0,5)
+\end{align}
+\begin{figure}[!h]
+ \begin{center}
+  \includegraphics[width=\columnwidth]{./figs/fig.png}
+ \end{center}
+\caption{}
+\label{fig:Fig1}
+\end{figure}
+\end{enumerate}
+
+\end{document}
