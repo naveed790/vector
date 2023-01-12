@@ -4,33 +4,23 @@ from numpy import linalg as LA
 import math 
 import sys     #for path to external scripts 
   
-def find_x(point1,point2):
-    B=np.array(point1)
-    D=np.array(point2)
-#Formula for calculating the length 
-    proj = np.array((B-D).T)
-    proj2 = np.array((B-D))
-    proj3 = np.multiply(proj,proj2)
-    proj1 = math.sqrt(np.array(proj3[0])+np.array((proj3[1])))
-    return proj1
-def find_y(point1,point2):
+def bd(point1,point2,point3,point4):
     A=np.array(point1)
-    C=np.array(point2)
-#Formula for calculating the length
-    proj = np.array((A-C).T)
-    proj2 = np.array((A-C))
-    proj3 = np.multiply(proj,proj2)
-    proj1 = math.sqrt(np.array(proj3[0])+np.array((proj3[1])))
-    return proj1
-#Two aray vectors are given
+    B=np.array(point2)
+    C=np.array(point3)
+    D=np.array(point4)
+    AC = np.array((A-C))
+    BD = np.array((B-D))
+    length = np.multiply(AC[0],BD[1])-np.multiply(AC[1],BD[0])
+    print(length)
+    return length
+
+
 point1= np.array(([3, 0]))
 point2= np.array(([4, 5]))
 point3= np.array(([-1, 4]))
 point4= np.array(([-2, -1]))
-x=find_x(point2,point4)
-y=find_y(point1,point3)
-area = (x*y)/2
-print(area)
+length = bd(point1,point2,point3,point4)
 A = np.array(([3, 0]))
 B = np.array(([4, 5]))
 C= np.array(([-1,4]))
@@ -71,8 +61,9 @@ plt.text(3,0,'   A(3,0)')
 plt.text(4,5,'   B(4,5)') 
 plt.text(-1,4,'   C(-1,4)') 
 plt.text(-2,-1,'   D(-2,-1)') 
-plt.text(2,1, '5.65')
-plt.text(1,3, '8.482')
+plt.text(6,6,'   B-D(6,6)') 
+plt.text(4,-4,'   A-C(4,-4)') 
+
 #if using termux
 plt.savefig('../fig.pdf')
 #else
