@@ -61,8 +61,8 @@ plt.text(3,0,'   A(3,0)')
 plt.text(4,5,'   B(4,5)') 
 plt.text(-1,4,'   C(-1,4)') 
 plt.text(-2,-1,'   D(-2,-1)') 
-plt.text(6,6,'   B-D(6,6)') 
-plt.text(4,-4,'   A-C(4,-4)') 
+#plt.text(6,6,'   B-D(6,6)') 
+#plt.text(4,-4,'   A-C(4,-4)') 
 
 #if using termux
 plt.savefig('../fig.pdf')
