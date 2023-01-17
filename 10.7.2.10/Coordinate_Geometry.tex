@@ -61,42 +61,42 @@ The input vertices for this problem are given as
 	\begin{align}
 	\vec{A} = \myvec{
 		3\\
-		0\\
+		0
 		},
 	\vec{B} = \myvec{
 		4\\
-		5\\
+		5
 		},
         \vec{C} = \myvec{
 		-1\\
-		4\\
+		4
 		},
         \vec{D} = \myvec{
 		-2\\
-		-1\\
+		-1
 		}
 	\end{align}
+		
 
-Area of a rhombus  = $\frac{1}{2}$ (product of its diagonals)\\\\
+Area of a rhombus  = $\frac{1}{2}$ (product of its diagonals)
 for the given vertices of the rhombus, we can find the vectors $\vec{B}$ and $\vec{D}$ formed by its diagonals as follows:
 \begin{align}
  \vec{B-D}= \myvec{4 \\ 5} - \myvec{-2 \\-1}= \myvec{6\\6}
 \end{align}
-the length of the another diagonal $\vec{A}$ and $\vec{C}$ are can be obtained 
-which can be simplified to obtained by
+the length of the another diagonal $\vec{A}$ and $\vec{C}$ are can be obtained by
 \begin{align}
   \vec{A-C}= \myvec{3 \\ 0} - \myvec{-1 \\4}= \myvec{4\\-4}
 \end{align}
-To find the area of the rhombus, we can then take the cross product of these two diagonal vectors are given by\\
+To find the area of the rhombus, we can take the cross product of these two diagonal vectors which are given by
 \begin{align}
     \norm{\vec{a}\times \vec{b}} &=\norm{\myvec{a_1\\a_2} \times \myvec{b_1\\b_2}} =  \lvert a_1 b_2 - a_2 b_1 \rvert  
 \end{align}
 By using above formula
 \begin{align}
-        \norm{\myvec{\vec{B-D}}\times \myvec{\vec{A-C}}} = \norm{\myvec{6\\6} \times \myvec{4\\-4}} &= 48 \\ 
+        \norm{\myvec{\vec{B-D}}\times \myvec{\vec{A-C}}} = \norm{\myvec{6\\6} \times \myvec{4\\-4}} &= 48 
 \end{align}
 Area of rhombus = $\frac{1}{2}$ (Cross product of diagonals)
-                &= $\frac{48}{2}$= 24
+                = $\frac{48}{2}$= 24
 \begin{figure}[!h]
  \begin{center}
   \includegraphics[width=\columnwidth]{./figs/fig.png}
