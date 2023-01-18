@@ -9,11 +9,11 @@ def bd(point1,point2,point3,point4):
     B=np.array(point2)
     C=np.array(point3)
     D=np.array(point4)
-    AC = np.array((A-C))
-    BD = np.array((B-D))
-    length = np.multiply(AC[0],BD[1])-np.multiply(AC[1],BD[0])
-    print(length)
-    return length
+    AD = np.array((A-D))
+    BA = np.array((B-A))
+    area = np.cross(AD,BA)
+    print(area)
+    return area
 
 
 point1= np.array(([3, 0]))
