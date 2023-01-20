@@ -1,70 +1,55 @@
-import numpy as np 
-import matplotlib.pyplot as plt 
-from numpy import linalg as LA 
-import math 
-import sys     #for path to external scripts 
-  
-def bd(point1,point2,point3,point4):
-    A=np.array(point1)
-    B=np.array(point2)
-    C=np.array(point3)
-    D=np.array(point4)
-    AC = np.array((A-C))
-    BD = np.array((B-D))
-    length = np.multiply(AC[0],BD[1])-np.multiply(AC[1],BD[0])
-    print(length)
-    return length
+import matplotlib.pyplot as plt
+import numpy as np
+import math as ma
+from matplotlib import pyplot as plt, patches
+import math
+import subprocess
+import shlex
+import warnings
+warnings.simplefilter(action='ignore', category=FutureWarning)
 
 
-point1= np.array(([3, 0]))
-point2= np.array(([4, 5]))
-point3= np.array(([-1, 4]))
-point4= np.array(([-2, -1]))
-length = bd(point1,point2,point3,point4)
-A = np.array(([3, 0]))
-B = np.array(([4, 5]))
-C= np.array(([-1,4]))
-D = np.array(([-2, -1])) 
- 
-def line_gen(A,B): 
-   len =10 
-   dim = A.shape[0] 
-   x_AB = np.zeros((dim,len)) 
-   lam_1 = np.linspace(0,1,len) 
-   for i in range(len): 
-     temp1 = A + lam_1[i]*(B-A) 
-     x_AB[:,i]= temp1.T 
-   return x_AB 
 
- 
- 
-x_AB = line_gen(A,B) 
-x_BC = line_gen(B,C) 
-x_CD = line_gen(C,D) 
-x_DA = line_gen(D,A) 
-x_BD = line_gen(B,D)
-x_AC = line_gen(A,C)
-plt.plot(x_AB[0,:],x_AB[1,:],label='$AB$') 
-plt.plot(x_BC[0,:],x_BC[1,:],label='$BC$') 
-plt.plot(x_CD[0,:],x_CD[1,:],label='$CD$') 
-plt.plot(x_DA[0,:],x_DA[1,:],label='$DA$') 
-plt.plot(x_BD[0,:],x_BD[1,:],label='$BD$') 
-plt.plot(x_AC[0,:],x_AC[1,:],label='$AC$') 
+def line_gen(A,B):
+    len=10
+    dim = A.shape[0]
+    x_AB = np.zeros((dim,len))
+    lam_1 = np.linspace(0,1,len)
+    for i in range(len):
+        temp1 = A + lam_1[i]*(B-A)
+        x_AB[:,i] = temp1.T
+    return x_AB
+    
 
-plt.xlabel('$x-axis$') 
-plt.ylabel('$y-axis$') 
-plt.legend(loc='best') 
-plt.grid() # minor 
-plt.axis('equal') 
-plt.title('Rhombus',size=12) 
-plt.text(3,0,'   A(3,0)') 
-plt.text(4,5,'   B(4,5)') 
-plt.text(-1,4,'   C(-1,4)') 
-plt.text(-2,-1,'   D(-2,-1)') 
-#plt.text(6,6,'   B-D(6,6)') 
-#plt.text(4,-4,'   A-C(4,-4)') 
 
+x = np.linspace(-5,5,100)
+A=np.array(([0,0]))
+theta1 = np.pi*2/3
+slope = np.tan(theta1)
+print(slope)
+d1=4
+B = d1*np.array(([np.cos(theta1),np.sin(theta1)]))
+C= d1*np.array(([-(np.cos(theta1)),-(np.sin(theta1))]))
+x_AC=line_gen(A,C)
+x_AB=line_gen(A,B)
+print(C)
+
+plt.plot(x_AB[0,:],x_AB[1,:],label="Slope = -1.732")
+plt.plot(x_AC[0,:],x_AC[1,:],label="theta = 120 degree")
+sqr_vert = np.vstack((A,B)).T
+sqr_vert1 = np.vstack((A,C)).T
+plt.scatter(sqr_vert[0,:],sqr_vert[1,:])
+plt.scatter(sqr_vert1[0,:],sqr_vert1[1,:])
+vert_labels = ['(0,0)']
+
+
+plt.xlabel('x', color='#1C2833')
+plt.ylabel('y', color='#1C2833')
+plt.legend(loc='upper left')
+plt.grid()                                      
+plt.axis('equal')
 #if using termux
-plt.savefig('../fig.pdf')
-#else
+#plt.savefig('/sdcard/download/fwcassgn/trunk/fwcassgn/trunk/line/11.10.3.3/figs/line1.png')
+#subprocess.run(shlex.split("termux-open /sdcard/download/fwcassgn/trunk/fwcassgn/trunk/line/11.10.3.3/figs/line1.png"))
+
 plt.show()
