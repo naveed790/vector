@@ -5,7 +5,7 @@ c=np.array([1,2,3])
 x=b+c
 magnitude=np.linalg.norm(x)
 u=x/magnitude
-result=np.dot(a,u)
+result=a@u
 print(result)
 
 
